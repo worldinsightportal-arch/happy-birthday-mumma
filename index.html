@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Mummaaaaaa ❤️</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background: linear-gradient(135deg,#120016,#2a0938,#3f1027,#0b0612);
   overflow:hidden;
-  background:radial-gradient(circle at top,#2b0638,#0d0018 60%,#000);
   color:white;
 }
-.screen{
+.hidden{display:none!important}
+
+#intro,#slideshow,#finalScreen{
   position:fixed;
   inset:0;
   display:flex;
@@ -21,146 +24,180 @@ body{
   align-items:center;
   text-align:center;
   padding:20px;
+}
+
+#intro{
   z-index:20;
+  background:radial-gradient(circle at top,#2d0b3e,#120016 60%,#050208);
 }
+
+.glass{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:28px;
+  padding:28px;
+  max-width:900px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+
 h1{
-  font-size:clamp(2.2rem,6vw,5rem);
-  margin-bottom:20px;
-  text-shadow:0 0 25px rgba(255,255,255,.25);
+  font-size:clamp(2.2rem,6vw,4.5rem);
+  margin-bottom:18px;
+  color:#fff6fa;
 }
+
 p{
-  font-size:clamp(1rem,2vw,1.4rem);
-  max-width:850px;
+  font-size:clamp(1rem,2vw,1.35rem);
   line-height:1.8;
+  color:#fff8fb;
 }
+
 button{
-  margin-top:30px;
+  margin-top:24px;
   padding:16px 34px;
   border:none;
   border-radius:999px;
-  background:linear-gradient(135deg,#fff,#ffd7f5);
-  color:#5b0058;
+  cursor:pointer;
   font-size:1rem;
   font-weight:700;
-  cursor:pointer;
-  box-shadow:0 15px 40px rgba(255,255,255,.15);
+  background:linear-gradient(135deg,#fff7fb,#ffd6ec);
+  color:#5b0048;
+  box-shadow:0 10px 35px rgba(255,214,236,0.35);
 }
-.layer{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-}
-.float{
-  position:absolute;
-  animation:fall linear infinite;
-}
-@keyframes fall{
-  0%{transform:translateY(-10vh) rotate(0deg)}
-  100%{transform:translateY(110vh) rotate(360deg)}
-}
+
 #slideshow{
-  position:fixed;
-  inset:0;
-  display:none;
-  justify-content:center;
-  align-items:center;
   z-index:5;
+  display:none;
 }
+
 #photo{
   max-width:90vw;
   max-height:75vh;
   border-radius:28px;
-  box-shadow:0 30px 90px rgba(0,0,0,.85);
+  box-shadow:0 25px 80px rgba(0,0,0,.8);
   opacity:0;
-  transition:opacity 1.2s ease, transform 7s ease;
+  transform:scale(1);
+  transition:opacity 1s ease, transform 5s ease;
 }
+
 #caption{
   position:fixed;
-  bottom:7vh;
+  bottom:6vh;
   left:50%;
   transform:translateX(-50%);
-  z-index:25;
-  background:rgba(255,255,255,.08);
+  z-index:30;
+  max-width:88vw;
+  padding:16px 22px;
+  border-radius:22px;
+  background:rgba(18,0,22,.58);
   backdrop-filter:blur(14px);
-  padding:16px 24px;
-  border-radius:24px;
-  font-size:clamp(1rem,2vw,1.7rem);
-  max-width:90vw;
+  color:#fff9fc;
+  font-size:clamp(1rem,2vw,1.4rem);
   text-align:center;
+  display:none;
 }
+
+.layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+}
+
+.float{
+  position:absolute;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  from{transform:translateY(-12vh) rotate(0deg)}
+  to{transform:translateY(112vh) rotate(360deg)}
+}
+
 .gift{
   position:fixed;
-  font-size:2.2rem;
+  font-size:2.3rem;
+  z-index:40;
   cursor:pointer;
-  z-index:30;
-  animation:bounce 2s infinite;
+  animation:bounce 2.2s infinite;
+  display:none;
 }
+
 @keyframes bounce{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+  50%{transform:translateY(-12px)}
 }
+
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.85);
+  background:rgba(0,0,0,.82);
   display:none;
   justify-content:center;
   align-items:center;
-  z-index:100;
   padding:20px;
+  z-index:100;
 }
+
 .popupCard{
-  background:linear-gradient(135deg,#ffffff,#ffe6f5);
-  color:#42003b;
-  max-width:700px;
-  padding:30px;
-  border-radius:30px;
-  text-align:center;
-  line-height:1.9;
+  max-width:760px;
   max-height:85vh;
   overflow:auto;
+  padding:30px;
+  border-radius:28px;
+  background:linear-gradient(135deg,#fff9fc,#ffe7f4);
+  color:#430033;
+  text-align:center;
+  line-height:1.9;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
+
 #finalScreen{
   display:none;
-  background:radial-gradient(circle,#630055,#1a0018,#000);
   z-index:200;
+  background:radial-gradient(circle,#5e004c,#210018,#050208);
 }
+
 #finalScreen h1{
   animation:pulse 2s infinite;
 }
+
 @keyframes pulse{
   0%,100%{transform:scale(1)}
-  50%{transform:scale(1.06)}
+  50%{transform:scale(1.05)}
 }
 </style>
 </head>
 <body>
 
 <div class="layer" id="flowers"></div>
-<div class="layer" id="hearts"></div>
 <div class="layer" id="sparkles"></div>
+<div class="layer" id="hearts"></div>
 <div class="layer" id="balloons"></div>
 
-<div class="screen" id="intro">
-  <h1>✨ A surprise for someone very special ✨</h1>
-  <p>
-    माँ, तुम सिर्फ मेरी माँ नहीं हो…<br>
-    तुम वो कहानी हो, जिसे ज़िंदगी ने बहुत प्यार से लिखा है ❤️
-  </p>
-  <button onclick="startExperience()">Begin the Journey 🌸</button>
+<div id="intro">
+  <div class="glass">
+    <h1>✨ A surprise for someone very special ✨</h1>
+    <p>
+      माँ, तुम सिर्फ मेरी माँ नहीं हो…<br>
+      तुम वो कहानी हो, जिसे ज़िंदगी ने बहुत प्यार से लिखा है ❤️
+    </p>
+    <button onclick="startExperience()">Begin the Journey 🌸</button>
+  </div>
 </div>
 
 <div id="slideshow">
-  <img id="photo" src="">
+  <img id="photo" src="" alt="">
 </div>
 
 <div id="caption"></div>
 
-<div class="gift" style="top:18%;left:8%" onclick="openPopup('ताक़त हमेशा शोर नहीं करती…<br><br>कभी-कभी वो माँ बनकर चुपचाप सब संभालती है ❤️')">🎁</div>
+<div class="gift" id="gift1" style="top:16%;left:7%" onclick="openPopup('ताक़त हमेशा शोर नहीं करती…<br><br>कभी-कभी वो माँ बनकर चुपचाप सब संभालती है ❤️')">🎁</div>
 
-<div class="gift" style="top:22%;right:8%" onclick="openPopup('अगर ज़िंदगी फिर से मिले…<br><br>तो हर बार तुम्हें ही माँ चुनूँ ❤️')">💌</div>
+<div class="gift" id="gift2" style="top:22%;right:7%" onclick="openPopup('अगर ज़िंदगी फिर से मिले…<br><br>तो हर बार तुम्हें ही माँ चुनूँ ❤️')">💌</div>
 
-<div class="gift" style="bottom:18%;left:12%" onclick="openPopup('For the most beautiful soul I know 🌷💐')">💐</div>
+<div class="gift" id="gift3" style="bottom:18%;left:10%" onclick="openPopup('For the most beautiful soul I know 🌷💐')">💐</div>
 
 <div class="popup" id="popup">
   <div class="popupCard">
@@ -191,17 +228,19 @@ button{
       दुआ है मेरी कि कभी कम न हो ये मुस्कान तुम्हारी,<br>
       तुमसे ही तो रोशन है ये ज़िंदगी हमारी ❤️
     </p>
-    <button onclick="closePoem()">Close ❤️</button>
+    <button onclick="closePoem()">Continue ❤️</button>
   </div>
 </div>
 
-<div class="screen" id="finalScreen">
-  <h1>🎂 Happy Birthday Mummaaaaaa ❤️</h1>
-  <p>
-    क्योंकि माँ को शब्दों में नहीं… दिल में रखा जाता है ❤️<br><br>
-    If I had a thousand lives, I’d still choose you as my mother in every one of them.
-  </p>
-  <button onclick="location.reload()">Replay Memories ✨</button>
+<div id="finalScreen">
+  <div class="glass">
+    <h1>🎂 Happy Birthday Mummaaaaaa ❤️</h1>
+    <p>
+      क्योंकि माँ को शब्दों में नहीं… दिल में रखा जाता है ❤️<br><br>
+      If I had a thousand lives, I’d still choose you as my mother in every one of them.
+    </p>
+    <button onclick="location.reload()">Replay Memories ✨</button>
+  </div>
 </div>
 
 <audio id="music">
@@ -211,39 +250,45 @@ button{
 <script>
 const images = [];
 for(let i=1;i<=63;i++){
-  const n=i.toString().padStart(2,'0');
-  images.push(`mumma/image${n}.jpeg`);
+  images.push(`mumma/image${String(i).padStart(2,'0')}.jpeg`);
 }
 
-const captions = [
+const storyCaptions = [
+"Long before I called you Mumma, you were a girl with dreams 🌸",
 "कुछ चेहरे उम्र से नहीं, मोहब्बत से निखरते हैं ✨",
-"Before I knew you as Mumma, you were someone’s dream too ❤️",
+"A beautiful soul becoming herself ❤️",
+"Then came a beautiful new beginning 💍",
 "तुमने घर नहीं बनाया… तुमने दुनिया बसाई ❤️",
-"Some people are remembered in photographs. You are remembered in the way home feels 🌸",
+"Love found its truest form in you 💖",
 "हर तस्वीर में तुम हो… और हर याद में तुम्हारा प्यार ❤️",
-"The older I grow, the more miraculous you become ✨"
+"You made ordinary days feel like festivals ✨",
+"Strength doesn’t always roar. Sometimes, it quietly becomes a mother.",
+"The older I grow, the more miraculous you become 🌷",
+"Our safest place. Our first home. Our Mumma ❤️",
+"Every sacrifice became love in disguise 💕"
 ];
 
 function sprinkle(id,symbols,count){
+  const layer=document.getElementById(id);
   for(let i=0;i<count;i++){
-    const e=document.createElement('div');
-    e.className='float';
-    e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-    e.style.left=Math.random()*100+'vw';
-    e.style.fontSize=(16+Math.random()*26)+'px';
-    e.style.animationDuration=(6+Math.random()*10)+'s';
-    e.style.animationDelay=(Math.random()*6)+'s';
-    document.getElementById(id).appendChild(e);
+    const el=document.createElement('div');
+    el.className='float';
+    el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    el.style.left=Math.random()*100+'vw';
+    el.style.fontSize=(16+Math.random()*24)+'px';
+    el.style.animationDuration=(7+Math.random()*8)+'s';
+    el.style.animationDelay=(Math.random()*5)+'s';
+    layer.appendChild(el);
   }
 }
 
-sprinkle('flowers',['🌸','🌺','🌷'],25);
-sprinkle('hearts',['💖','💕'],15);
-sprinkle('sparkles',['✨'],20);
-sprinkle('balloons',['🎈'],12);
+sprinkle('flowers',['🌸','🌺','🌷'],20);
+sprinkle('sparkles',['✨'],16);
+sprinkle('hearts',['💖','💕'],10);
+sprinkle('balloons',['🎈'],8);
 
 function openPopup(msg){
-  document.getElementById('popupText').innerHTML=msg;
+  document.getElementById('popupText').innerHTML = msg;
   document.getElementById('popup').style.display='flex';
 }
 function closePopup(){
@@ -253,43 +298,66 @@ function closePoem(){
   document.getElementById('poemPopup').style.display='none';
 }
 
-function startExperience(){
+function preloadImages(arr){
+  return Promise.all(arr.map(src => new Promise(resolve=>{
+    const img = new Image();
+    img.onload = resolve;
+    img.onerror = resolve;
+    img.src = src;
+  })));
+}
+
+async function startExperience(){
   document.getElementById('intro').style.display='none';
-  document.getElementById('slideshow').style.display='flex';
 
   const music=document.getElementById('music');
   music.currentTime=0;
   music.play().catch(()=>{});
 
+  document.getElementById('caption').style.display='block';
+  document.getElementById('slideshow').style.display='flex';
+
+  document.getElementById('gift1').style.display='block';
+  document.getElementById('gift2').style.display='block';
+  document.getElementById('gift3').style.display='block';
+
+  await preloadImages(images);
   startSlideshow();
 }
 
 function startSlideshow(){
   const img=document.getElementById('photo');
   const cap=document.getElementById('caption');
-  let i=0;
+  let index=0;
 
   function next(){
-    if(i===30){
+    if(index===31){
       document.getElementById('poemPopup').style.display='flex';
     }
 
-    if(i>=images.length){
-      document.getElementById('finalScreen').style.display='flex';
+    if(index >= images.length){
       cap.style.display='none';
+      document.getElementById('finalScreen').style.display='flex';
       return;
     }
 
     img.style.opacity=0;
 
     setTimeout(()=>{
-      img.src=images[i];
+      img.src=images[index];
       img.style.transform='scale(1.08)';
       img.style.opacity=1;
-      cap.textContent=captions[i % captions.length];
-      i++;
-      setTimeout(next,3500);
-    },900);
+
+      const captionIndex = Math.min(
+        Math.floor(index / Math.ceil(images.length / storyCaptions.length)),
+        storyCaptions.length - 1
+      );
+
+      cap.textContent = storyCaptions[captionIndex];
+
+      index++;
+      setTimeout(next, 3500);
+    }, 500);
   }
 
   next();
