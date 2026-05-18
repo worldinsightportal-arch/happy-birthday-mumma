@@ -3,136 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Mummaaaaaa ❤️</title>
+<title>Happy Birthday Mummaaa ❤️</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background: linear-gradient(135deg,#120016,#2a0938,#3f1027,#0b0612);
   overflow:hidden;
+  background:linear-gradient(135deg,#140611,#3a1030,#1c0a1c);
   color:white;
 }
-.hidden{display:none!important}
 
-#intro,#slideshow,#finalScreen{
+.screen{
   position:fixed;
   inset:0;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-align:center;
+  flex-direction:column;
   padding:20px;
 }
 
-#intro{
-  z-index:20;
-  background:radial-gradient(circle at top,#2d0b3e,#120016 60%,#050208);
-}
-
 .glass{
-  background:rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.08);
   backdrop-filter:blur(18px);
   border:1px solid rgba(255,255,255,0.15);
-  border-radius:28px;
-  padding:28px;
+  border-radius:30px;
+  padding:30px;
   max-width:900px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+  text-align:center;
+  box-shadow:0 20px 70px rgba(0,0,0,0.5);
 }
 
 h1{
-  font-size:clamp(2.2rem,6vw,4.5rem);
-  margin-bottom:18px;
-  color:#fff6fa;
+  font-size:clamp(2rem,6vw,4.5rem);
+  margin-bottom:20px;
 }
 
-p{
-  font-size:clamp(1rem,2vw,1.35rem);
+.intro-text{
+  font-size:clamp(1rem,2vw,1.3rem);
   line-height:1.8;
-  color:#fff8fb;
+  color:#ffe9f6;
 }
 
 button{
-  margin-top:24px;
+  margin-top:25px;
   padding:16px 34px;
   border:none;
   border-radius:999px;
-  cursor:pointer;
-  font-size:1rem;
+  background:linear-gradient(135deg,#ffe4f2,#ffd0ea);
+  color:#5a003a;
   font-weight:700;
-  background:linear-gradient(135deg,#fff7fb,#ffd6ec);
-  color:#5b0048;
-  box-shadow:0 10px 35px rgba(255,214,236,0.35);
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(255,192,203,0.3);
 }
 
 #slideshow{
-  z-index:5;
   display:none;
 }
 
 #photo{
-  max-width:90vw;
+  max-width:88vw;
   max-height:75vh;
-  border-radius:28px;
-  box-shadow:0 25px 80px rgba(0,0,0,.8);
+  border-radius:24px;
+  box-shadow:0 20px 80px rgba(0,0,0,0.6);
   opacity:0;
-  transform:scale(1);
-  transition:opacity 1s ease, transform 5s ease;
+  transition:opacity 1s ease, transform 4s ease;
 }
 
 #caption{
   position:fixed;
-  bottom:6vh;
+  bottom:5vh;
   left:50%;
   transform:translateX(-50%);
-  z-index:30;
-  max-width:88vw;
-  padding:16px 22px;
-  border-radius:22px;
-  background:rgba(18,0,22,.58);
+  background:rgba(25,8,24,0.75);
   backdrop-filter:blur(14px);
-  color:#fff9fc;
-  font-size:clamp(1rem,2vw,1.4rem);
+  padding:18px 26px;
+  border-radius:22px;
+  color:#fff;
+  font-size:clamp(1rem,2vw,1.3rem);
+  max-width:90vw;
   text-align:center;
   display:none;
 }
 
-.layer{
+.particles{
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:2;
 }
 
-.float{
+.particle{
   position:absolute;
   animation:fall linear infinite;
 }
 
 @keyframes fall{
-  from{transform:translateY(-12vh) rotate(0deg)}
-  to{transform:translateY(112vh) rotate(360deg)}
-}
-
-.gift{
-  position:fixed;
-  font-size:2.3rem;
-  z-index:40;
-  cursor:pointer;
-  animation:bounce 2.2s infinite;
-  display:none;
-}
-
-@keyframes bounce{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
+  from{
+    transform:translateY(-10vh);
+  }
+  to{
+    transform:translateY(110vh);
+  }
 }
 
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.82);
+  background:rgba(0,0,0,0.82);
   display:none;
   justify-content:center;
   align-items:center;
@@ -140,75 +124,100 @@ button{
   z-index:100;
 }
 
-.popupCard{
-  max-width:760px;
+.popup-card{
+  background:linear-gradient(135deg,#fff6fb,#ffe7f3);
+  color:#4a0030;
+  padding:30px;
+  border-radius:30px;
+  max-width:700px;
   max-height:85vh;
   overflow:auto;
-  padding:30px;
-  border-radius:28px;
-  background:linear-gradient(135deg,#fff9fc,#ffe7f4);
-  color:#430033;
-  text-align:center;
-  line-height:1.9;
-  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  line-height:2;
+  font-size:1.08rem;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
 
-#finalScreen{
+.popup h2{
+  margin-bottom:20px;
+  font-size:2rem;
+  color:#670042;
+}
+
+.gift{
+  position:fixed;
+  font-size:2.2rem;
+  z-index:50;
+  cursor:pointer;
   display:none;
-  z-index:200;
-  background:radial-gradient(circle,#5e004c,#210018,#050208);
 }
 
-#finalScreen h1{
-  animation:pulse 2s infinite;
+#gift1{top:18%;left:7%;}
+#gift2{top:20%;right:8%;}
+#gift3{bottom:16%;left:10%;}
+
+#final{
+  display:none;
+  background:radial-gradient(circle,#6a0d4d,#1b0816,#080305);
+  z-index:300;
 }
 
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.05)}
+.final-text{
+  color:#ffeaf7;
+  font-size:1.2rem;
+  line-height:1.8;
 }
 </style>
 </head>
 <body>
 
-<div class="layer" id="flowers"></div>
-<div class="layer" id="sparkles"></div>
-<div class="layer" id="hearts"></div>
-<div class="layer" id="balloons"></div>
+<div class="particles" id="particles"></div>
 
-<div id="intro">
+<div class="screen" id="intro">
   <div class="glass">
-    <h1>✨ A surprise for someone very special ✨</h1>
-    <p>
-      माँ, तुम सिर्फ मेरी माँ नहीं हो…<br>
-      तुम वो कहानी हो, जिसे ज़िंदगी ने बहुत प्यार से लिखा है ❤️
-    </p>
-    <button onclick="startExperience()">Begin the Journey 🌸</button>
+    <h1>✨ A surprise for Mumma ✨</h1>
+    <div class="intro-text">
+      माँ, तुम सिर्फ मेरी माँ नहीं हो...<br>
+      तुम वो प्यार हो जिसकी वजह से हम आज जो हैं, वो हैं ❤️
+    </div>
+    <button onclick="startShow()">Begin the Journey 🌸</button>
   </div>
 </div>
 
-<div id="slideshow">
-  <img id="photo" src="" alt="">
+<div class="screen" id="slideshow">
+  <img id="photo">
 </div>
 
 <div id="caption"></div>
 
-<div class="gift" id="gift1" style="top:16%;left:7%" onclick="openPopup('ताक़त हमेशा शोर नहीं करती…<br><br>कभी-कभी वो माँ बनकर चुपचाप सब संभालती है ❤️')">🎁</div>
+<div class="gift" id="gift1" onclick="showPopup('msg1')">🎁</div>
+<div class="gift" id="gift2" onclick="showPopup('msg2')">💌</div>
+<div class="gift" id="gift3" onclick="showPopup('msg3')">💐</div>
 
-<div class="gift" id="gift2" style="top:22%;right:7%" onclick="openPopup('अगर ज़िंदगी फिर से मिले…<br><br>तो हर बार तुम्हें ही माँ चुनूँ ❤️')">💌</div>
-
-<div class="gift" id="gift3" style="bottom:18%;left:10%" onclick="openPopup('For the most beautiful soul I know 🌷💐')">💐</div>
-
-<div class="popup" id="popup">
-  <div class="popupCard">
-    <div id="popupText"></div>
-    <button onclick="closePopup()">Close ❤️</button>
+<div class="popup" id="msg1">
+  <div class="popup-card">
+    ताक़त हमेशा शोर नहीं करती...<br>
+    कभी-कभी वो माँ बनकर चुपचाप सब संभालती है ❤️
+    <button onclick="closePopup('msg1')">Close</button>
   </div>
 </div>
 
-<div class="popup" id="poemPopup">
-  <div class="popupCard">
-    <h2 style="margin-bottom:20px;">मेरी प्यारी माँ ❤️</h2>
+<div class="popup" id="msg2">
+  <div class="popup-card">
+    अगर ज़िंदगी फिर से मिले...<br>
+    तो हर बार तुम्हें ही माँ चुनूँ ❤️
+    <button onclick="closePopup('msg2')">Close</button>
+  </div>
+</div>
+
+<div class="popup" id="msg3">
+  <div class="popup-card">
+    For the most beautiful soul I know 🌷
+    <button onclick="closePopup('msg3')">Close</button>
+  </div>
+</div>
+<div class="popup" id="poem1">
+  <div class="popup-card">
+    <h2>मेरी प्यारी माँ ❤️</h2>
     <p>
       जब भी कभी मैं डरी या सहमी,<br>
       मेरी ढाल बनकर हमेशा तुम खड़ी रहीं।<br><br>
@@ -228,17 +237,41 @@ button{
       दुआ है मेरी कि कभी कम न हो ये मुस्कान तुम्हारी,<br>
       तुमसे ही तो रोशन है ये ज़िंदगी हमारी ❤️
     </p>
-    <button onclick="closePoem()">Continue ❤️</button>
+    <button onclick="closePopup('poem1')">Continue ❤️</button>
   </div>
 </div>
 
-<div id="finalScreen">
+<div class="popup" id="poem2">
+  <div class="popup-card">
+    <h2>ममता का आँचल ❤️</h2>
+    <p>
+      तुम्हारी उंगली थामकर मैंने चलना सीखा था,<br>
+      तुम्हारी हर डांट में छिपा वो मीठा सबक सीखा था।<br><br>
+
+      आज समझ आता है क्यों तुम इतना फिक्र करती हो,<br>
+      मेरी हर खुशी के लिए हर ग़म से लड़ती हो।<br><br>
+
+      तुम मेरी पहली दोस्त और मेरी सबसे बड़ी ताकत हो,<br>
+      मेरे चेहरे की हर प्यारी सी मुस्कान की वजह हो।<br><br>
+
+      जैसे-जैसे मैं बड़ी होती जा रही हूँ, माँ,<br>
+      मैं और भी ज्यादा तुम्हारे जैसी बनती जा रही हूँ।<br><br>
+
+      ईश्वर की बनाई इस दुनिया में सबसे अनमोल हो तुम,<br>
+      मेरी इस अधूरी सी ज़िन्दगी का मुकम्मल दौर हो तुम।
+    </p>
+    <button onclick="closePopup('poem2')">Continue ❤️</button>
+  </div>
+</div>
+
+<div class="screen" id="final">
   <div class="glass">
     <h1>🎂 Happy Birthday Mummaaaaaa ❤️</h1>
-    <p>
-      क्योंकि माँ को शब्दों में नहीं… दिल में रखा जाता है ❤️<br><br>
-      If I had a thousand lives, I’d still choose you as my mother in every one of them.
-    </p>
+    <div class="final-text">
+      Everything good in us has a little bit of you in it ❤️<br><br>
+      Thank you for every sacrifice, every prayer,
+      every sleepless night, every act of love.
+    </div>
     <button onclick="location.reload()">Replay Memories ✨</button>
   </div>
 </div>
@@ -253,114 +286,110 @@ for(let i=1;i<=63;i++){
   images.push(`mumma/image${String(i).padStart(2,'0')}.jpeg`);
 }
 
-const storyCaptions = [
-"Long before I called you Mumma, you were a girl with dreams 🌸",
-"कुछ चेहरे उम्र से नहीं, मोहब्बत से निखरते हैं ✨",
-"A beautiful soul becoming herself ❤️",
-"Then came a beautiful new beginning 💍",
-"तुमने घर नहीं बनाया… तुमने दुनिया बसाई ❤️",
-"Love found its truest form in you 💖",
-"हर तस्वीर में तुम हो… और हर याद में तुम्हारा प्यार ❤️",
-"You made ordinary days feel like festivals ✨",
-"Strength doesn’t always roar. Sometimes, it quietly becomes a mother.",
-"The older I grow, the more miraculous you become 🌷",
-"Our safest place. Our first home. Our Mumma ❤️",
-"Every sacrifice became love in disguise 💕"
+const captions = [
+"You stepped into a new life with courage ❤️",
+"You gave love a home 💍",
+"Then you became a mother… and gave us everything ❤️",
+"Sleepless nights. Endless care. Quiet sacrifices.",
+"Three children. One extraordinary mother ✨",
+"Every comfort in our lives has your love behind it ❤️",
+"Your strength held this family together 🌸",
+"Thank you for choosing us, every single day ❤️"
 ];
 
-function sprinkle(id,symbols,count){
-  const layer=document.getElementById(id);
-  for(let i=0;i<count;i++){
-    const el=document.createElement('div');
-    el.className='float';
-    el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-    el.style.left=Math.random()*100+'vw';
-    el.style.fontSize=(16+Math.random()*24)+'px';
-    el.style.animationDuration=(7+Math.random()*8)+'s';
-    el.style.animationDelay=(Math.random()*5)+'s';
-    layer.appendChild(el);
+function createParticles(){
+  const container = document.getElementById("particles");
+
+  for(let i=0;i<24;i++){
+    const p = document.createElement("div");
+    p.className = "particle";
+    p.textContent = Math.random() > 0.5 ? "✨" : "🌸";
+    p.style.left = Math.random()*100 + "vw";
+    p.style.fontSize = (14 + Math.random()*18) + "px";
+    p.style.animationDuration = (8 + Math.random()*8) + "s";
+    container.appendChild(p);
   }
 }
 
-sprinkle('flowers',['🌸','🌺','🌷'],20);
-sprinkle('sparkles',['✨'],16);
-sprinkle('hearts',['💖','💕'],10);
-sprinkle('balloons',['🎈'],8);
+createParticles();
 
-function openPopup(msg){
-  document.getElementById('popupText').innerHTML = msg;
-  document.getElementById('popup').style.display='flex';
-}
-function closePopup(){
-  document.getElementById('popup').style.display='none';
-}
-function closePoem(){
-  document.getElementById('poemPopup').style.display='none';
+function showPopup(id){
+  document.getElementById(id).style.display = "flex";
 }
 
-function preloadImages(arr){
-  return Promise.all(arr.map(src => new Promise(resolve=>{
-    const img = new Image();
-    img.onload = resolve;
-    img.onerror = resolve;
-    img.src = src;
-  })));
+function closePopup(id){
+  document.getElementById(id).style.display = "none";
 }
 
-async function startExperience(){
-  document.getElementById('intro').style.display='none';
+function preloadImages(){
+  return Promise.all(
+    images.map(src => new Promise(resolve=>{
+      const img = new Image();
+      img.onload = resolve;
+      img.onerror = resolve;
+      img.src = src;
+    }))
+  );
+}
+    async function startShow(){
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("slideshow").style.display = "flex";
+  document.getElementById("caption").style.display = "block";
 
-  const music=document.getElementById('music');
-  music.currentTime=0;
+  document.getElementById("gift1").style.display = "block";
+  document.getElementById("gift2").style.display = "block";
+  document.getElementById("gift3").style.display = "block";
+
+  const music = document.getElementById("music");
+  music.currentTime = 0;
+
   music.play().catch(()=>{});
 
-  document.getElementById('caption').style.display='block';
-  document.getElementById('slideshow').style.display='flex';
+  await preloadImages();
 
-  document.getElementById('gift1').style.display='block';
-  document.getElementById('gift2').style.display='block';
-  document.getElementById('gift3').style.display='block';
+  const photo = document.getElementById("photo");
+  const caption = document.getElementById("caption");
 
-  await preloadImages(images);
-  startSlideshow();
-}
+  let index = 0;
 
-function startSlideshow(){
-  const img=document.getElementById('photo');
-  const cap=document.getElementById('caption');
-  let index=0;
+  function nextSlide(){
 
-  function next(){
-    if(index===31){
-      document.getElementById('poemPopup').style.display='flex';
+    if(index === 20){
+      showPopup("poem1");
+    }
+
+    if(index === 45){
+      showPopup("poem2");
     }
 
     if(index >= images.length){
-      cap.style.display='none';
-      document.getElementById('finalScreen').style.display='flex';
+      caption.style.display = "none";
+      document.getElementById("final").style.display = "flex";
       return;
     }
 
-    img.style.opacity=0;
+    photo.style.opacity = 0;
 
     setTimeout(()=>{
-      img.src=images[index];
-      img.style.transform='scale(1.08)';
-      img.style.opacity=1;
+      photo.src = images[index];
+      photo.style.transform = "scale(1.06)";
+      photo.style.opacity = 1;
 
       const captionIndex = Math.min(
-        Math.floor(index / Math.ceil(images.length / storyCaptions.length)),
-        storyCaptions.length - 1
+        Math.floor(index / (images.length / captions.length)),
+        captions.length - 1
       );
 
-      cap.textContent = storyCaptions[captionIndex];
+      caption.textContent = captions[captionIndex];
 
       index++;
-      setTimeout(next, 3500);
-    }, 500);
+
+      setTimeout(nextSlide, 3200);
+
+    }, 400);
   }
 
-  next();
+  nextSlide();
 }
 </script>
 
