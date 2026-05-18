@@ -14,78 +14,69 @@
 
 body{
   overflow:hidden;
-  font-family:Georgia, serif;
-  background:radial-gradient(circle at top,#7a001f,#2a0010 60%,#120008);
+  font-family: Georgia, serif;
+  background:
+    radial-gradient(circle at top, rgba(255,80,80,.25), transparent 25%),
+    radial-gradient(circle at center, rgba(255,0,60,.18), transparent 35%),
+    linear-gradient(180deg, #1a0006 0%, #3b000f 35%, #160005 100%);
   color:#f8dfb0;
-}
-
-.spark{
-  position:fixed;
-  color:#ffd86b;
-  opacity:.8;
-  animation:float linear infinite;
-  pointer-events:none;
-}
-
-@keyframes float{
-  from{transform:translateY(100vh);}
-  to{transform:translateY(-10vh);}
-}
-
-.screen{
-  position:fixed;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  padding:20px;
-}
-
-#intro{
-  z-index:5;
-}
-
-#show{
-  z-index:2;
-  background:radial-gradient(circle at center,#8b0029,#4a0018 60%,#1a0009);
-}
-
-.hidden{
-  display:none !important;
 }
 
 .card{
-  background:rgba(80,0,30,.45);
-  border:1px solid rgba(255,215,120,.45);
-  backdrop-filter:blur(10px);
-  border-radius:28px;
-  box-shadow:0 20px 80px rgba(0,0,0,.5);
-  padding:32px;
-  max-width:900px;
+  position: relative;
+  background: rgba(70,0,15,.45);
+  border: 2px solid rgba(255,215,120,.75);
+  backdrop-filter: blur(14px);
+  border-radius: 30px;
+  box-shadow:
+    0 0 40px rgba(255,80,80,.15),
+    0 20px 100px rgba(0,0,0,.75);
+  padding: 60px 50px;
+  max-width: 1000px;
   text-align:center;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top, rgba(255,140,140,.15), transparent 30%);
+  pointer-events:none;
 }
 
 .title{
-  font-size:clamp(2rem,6vw,4.5rem);
-  margin-bottom:20px;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: bold;
+  line-height: 1.05;
+  background: linear-gradient(#ffe7a3, #ffb94f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+  text-shadow: 0 0 18px rgba(255,190,100,.2);
 }
 
 .sub{
-  font-size:clamp(1rem,2vw,1.4rem);
-  line-height:1.8;
-  color:#ffe8f1;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: 1.9;
+  color: #fff0dc;
+  text-shadow: 0 0 12px rgba(255,150,120,.18);
 }
 
 button{
-  margin-top:25px;
-  background:linear-gradient(#a4003a,#6a0026);
-  color:#f8dfb0;
-  border:1px solid #f8dfb0;
-  padding:16px 32px;
-  border-radius:999px;
-  font-size:1rem;
-  cursor:pointer;
+  margin-top: 35px;
+  padding: 20px 48px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,215,120,.9);
+  background: linear-gradient(180deg, #d60052, #7a002f);
+  color: #ffe7b3;
+  font-size: 1.4rem;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  box-shadow:
+    0 0 25px rgba(255,80,120,.35),
+    inset 0 2px 10px rgba(255,255,255,.18);
 }
 
 #slideimg{
@@ -143,11 +134,15 @@ button{
 
 <div id="intro" class="screen">
   <div class="card">
-    <div class="title">✨ A surprise for Mumma ✨</div>
+    <div class="title">
+      ✨ A SURPRISE<br>FOR MUMMA ✨
+    </div>
+
     <p class="sub">
       माँ, तुम सिर्फ मेरी माँ नहीं हो...<br>
       तुम वो कहानी हो, जिसे ज़िंदगी ने बहुत प्यार से लिखा है ❤️
     </p>
+
     <button onclick="startShow()">Begin the Journey 🌸</button>
   </div>
 </div>
