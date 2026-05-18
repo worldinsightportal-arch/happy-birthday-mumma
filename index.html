@@ -1,297 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Mumma ❤️</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Mumma</title>
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  overflow:hidden;
-  font-family: Georgia, serif;
-  background:
-    radial-gradient(circle at top, rgba(255,80,80,.25), transparent 25%),
-    radial-gradient(circle at center, rgba(255,0,60,.18), transparent 35%),
-    linear-gradient(180deg, #1a0006 0%, #3b000f 35%, #160005 100%);
-  color:#f8dfb0;
-}
-
-.card{
-  position: relative;
-  background: rgba(70,0,15,.45);
-  border: 2px solid rgba(255,215,120,.75);
-  backdrop-filter: blur(14px);
-  border-radius: 30px;
-  box-shadow:
-    0 0 40px rgba(255,80,80,.15),
-    0 20px 100px rgba(0,0,0,.75);
-  padding: 60px 50px;
-  max-width: 1000px;
-  text-align:center;
-  overflow:hidden;
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at top, rgba(255,140,140,.15), transparent 30%);
-  pointer-events:none;
-}
-
-.title{
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: bold;
-  line-height: 1.05;
-  background: linear-gradient(#ffe7a3, #ffb94f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 30px;
-  text-shadow: 0 0 18px rgba(255,190,100,.2);
-}
-
-.sub{
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
-  line-height: 1.9;
-  color: #fff0dc;
-  text-shadow: 0 0 12px rgba(255,150,120,.18);
-}
-
-button{
-  margin-top: 35px;
-  padding: 20px 48px;
-  border-radius: 999px;
-  border: 2px solid rgba(255,215,120,.9);
-  background: linear-gradient(180deg, #d60052, #7a002f);
-  color: #ffe7b3;
-  font-size: 1.4rem;
-  font-family: Georgia, serif;
-  cursor: pointer;
-  box-shadow:
-    0 0 25px rgba(255,80,120,.35),
-    inset 0 2px 10px rgba(255,255,255,.18);
-}
-
-#slideimg{
-  max-width:85vw;
-  max-height:75vh;
-  border-radius:24px;
-  box-shadow:0 20px 80px rgba(0,0,0,.7);
-}
-
-#caption{
-  position:fixed;
-  bottom:5vh;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(40,0,20,.78);
-  padding:16px 24px;
-  border-radius:18px;
-  color:#fff4d0;
-  font-size:1.2rem;
-  max-width:90vw;
-  text-align:center;
-}
-  .popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.78);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-  z-index:20;
-}
-
-.poem{
-  max-width:700px;
-  max-height:85vh;
-  overflow:auto;
-}
-
-.gift{
-  position:fixed;
-  font-size:2.2rem;
-  cursor:pointer;
-  z-index:15;
-  display:none;
-}
-
-.g1{top:15%;left:8%;}
-.g2{top:18%;right:8%;}
-.g3{bottom:14%;left:10%;}
-
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,serif;overflow:hidden;background:radial-gradient(circle at top,#7a001f,#2a0010 60%,#120008);color:#f8dfb0}
+.spark{position:fixed;color:#ffd86b;opacity:.7;animation:float linear infinite;pointer-events:none}
+@keyframes float{from{transform:translateY(100vh)}to{transform:translateY(-10vh)}}
+.screen{position:fixed;inset:0;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:20px}
+.hidden{display:none!important}
+#show{background:radial-gradient(circle at center,#8b0029,#4a0018 60%,#1a0009)}
+.card{background:rgba(80,0,30,.45);border:1px solid rgba(255,215,120,.45);backdrop-filter:blur(10px);border-radius:28px;box-shadow:0 20px 80px rgba(0,0,0,.5);padding:32px;max-width:900px;text-align:center}
+.title{font-size:clamp(2rem,6vw,4.5rem);margin-bottom:20px;color:#ffe7b3}.sub{font-size:clamp(1rem,2vw,1.4rem);line-height:1.8;color:#ffe8f1}
+button{margin-top:25px;background:linear-gradient(#a4003a,#6a0026);color:#f8dfb0;border:1px solid #f8dfb0;padding:16px 32px;border-radius:999px;font-size:1rem;cursor:pointer}
+#slideimg{max-width:85vw;max-height:75vh;border-radius:24px;box-shadow:0 20px 80px rgba(0,0,0,.7)}
+#caption{position:fixed;bottom:5vh;left:50%;transform:translateX(-50%);background:rgba(40,0,20,.78);padding:16px 24px;border-radius:18px;color:#fff4d0;font-size:1.1rem;max-width:90vw;text-align:center}
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;justify-content:center;align-items:center;padding:20px;z-index:20}.poem{max-width:700px;max-height:85vh;overflow:auto}
+.gift{position:fixed;font-size:2.2rem;cursor:pointer;z-index:15;display:none}.g1{top:15%;left:8%}.g2{top:18%;right:8%}.g3{bottom:14%;left:10%}
 </style>
 </head>
 <body>
-
-<div id="intro" class="screen">
-  <div class="card">
-    <div class="title">
-      ✨ A SURPRISE<br>FOR MUMMA ✨
-    </div>
-
-    <p class="sub">
-      माँ, तुम सिर्फ मेरी माँ नहीं हो...<br>
-      तुम वो कहानी हो, जिसे ज़िंदगी ने बहुत प्यार से लिखा है ❤️
-    </p>
-
-    <button onclick="startShow()">Begin the Journey 🌸</button>
-  </div>
-</div>
-
-<div id="show" class="screen hidden">
-  <img id="slideimg">
-  <div id="caption"></div>
-</div>
-
+<div id="intro" class="screen"><div class="card"><div class="title">✨ A surprise for Mumma ✨</div><p class="sub">माँ, तुम सिर्फ मेरी माँ नहीं हो...<br>तुम वो कहानी हो, जिसे ज़िंदगी ने बहुत प्यार से लिखा है ❤️</p><button onclick="startShow()">Begin the Journey 🌸</button></div></div>
+<div id="show" class="screen hidden"><img id="slideimg" /><div id="caption"></div></div>
 <div class="gift g1" onclick="showMessage('ताक़त हमेशा शोर नहीं करती... कभी-कभी वो माँ बनकर चुपचाप सब संभालती है ❤️')">🎁</div>
 <div class="gift g2" onclick="showMessage('अगर ज़िंदगी फिर से मिले, हर बार तुम्हें ही माँ चुनूँ ❤️')">💌</div>
 <div class="gift g3" onclick="showMessage('Thank you for every sacrifice ❤️')">💐</div>
-
-<div class="popup" id="popup">
-  <div class="card poem">
-    <div id="popuptext"></div>
-    <button onclick="closePopup()">Close ❤️</button>
-  </div>
-</div>
-
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
+<div class="popup" id="popup"><div class="card poem"><div id="popuptext"></div><button onclick="closePopup()">Close ❤️</button></div></div>
+<audio id="music" loop><source src="music.mp3" type="audio/mpeg"></audio>
 <script>
-for(let i=0;i<40;i++){
-  let s=document.createElement("div");
-  s.className="spark";
-  s.textContent="✦";
-  s.style.left=Math.random()*100+"vw";
-  s.style.animationDuration=(8+Math.random()*10)+"s";
-  s.style.fontSize=(10+Math.random()*20)+"px";
-  document.body.appendChild(s);
-}
-
-const images=[];
-for(let i=1;i<=63;i++){
-  images.push(`mumma/image${String(i).padStart(2,"0")}.jpeg`);
-}
-  const captions = [
-  "A beautiful beginning ❤️",
-  "A new chapter of love 💍",
-  "कुछ चेहरे उम्र से नहीं, मोहब्बत से निखरते हैं ✨",
-  "A beautiful soul becoming herself ❤️",
-  "तुमने घर नहीं बनाया… तुमने दुनिया बसाई ❤️",
-  "Love found its truest form in you 💖",
-  "हर तस्वीर में तुम हो… और हर याद में तुम्हारा प्यार ❤️",
-  "You made ordinary days feel like festivals ✨",
-  "Strength doesn’t always roar. Sometimes, it quietly becomes a mother.",
-  "The older I grow, the more miraculous you become 🌷",
-  "Our safest place. Our first home. Our Mumma ❤️",
-  "Every sacrifice became love in disguise 💕",
-  "Then you became a mother ❤️",
-  "Sleepless nights. Endless love.",
-  "Happiest of birthdays to the woman who shaped who I am and taught me how to dream big.",
-  "Mother of 3. Heart of the family ✨",
-  "Everything good in us has a little bit of you ❤️"
-];
-
-const poem1 = `
-<h2>मेरी प्यारी माँ ❤️</h2>
-<p>
-जब भी कभी मैं डरी या सहमी, मेरी ढाल बनकर हमेशा तुम खड़ी रहीं.<br><br>
-मेरी हर छोटी ख़ुशी में तुम मुस्कुराईं, और मेरे हर आँसू को तुमने अपने आँचल में छुपाया.<br><br>
-दुनिया की भीड़ में जब मैं खुद को खोती हूँ, तेरी ही ममता में मुझे अपनी पहचान मिलती है.<br><br>
-तेरे प्यार का कोई मोल नहीं इस दुनिया में, तू मेरी दुनिया है, मेरी सबसे पहली दोस्त है.
-</p>
-`;
-
-const poem2 = `
-<h2>ममता का आँचल ❤️</h2>
-<p>
-तुम्हारी उंगली थामकर मैंने चलना सीखा था.<br><br>
-आज समझ आता है क्यों तुम इतना फिक्र करती हो.<br><br>
-तुम मेरी पहली दोस्त और मेरी सबसे बड़ी ताकत हो.<br><br>
-मैं और भी ज्यादा तुम्हारे जैसी बनती जा रही हूँ.
-</p>
-`;
-
-function showMessage(msg){
-  document.getElementById("popuptext").innerHTML="<p>"+msg+"</p>";
-  document.getElementById("popup").style.display="flex";
-}
-
-function closePopup(){
-  document.getElementById("popup").style.display="none";
-}
-  function startShow() {
-  document.getElementById("intro").classList.add("hidden");
-  document.getElementById("show").classList.remove("hidden");
-
-  document.querySelectorAll(".gift").forEach(g => {
-    g.style.display = "block";
-  });
-
-  const music = document.getElementById("music");
-  music.currentTime = 0;
-  music.play().catch(() => {});
-
-  let idx = 0;
-  const img = document.getElementById("slideimg");
-  const cap = document.getElementById("caption");
-
-  function nextSlide() {
-
-    if (idx === 18) {
-      document.getElementById("popuptext").innerHTML = poem1;
-      document.getElementById("popup").style.display = "flex";
-    }
-
-    if (idx === 42) {
-      document.getElementById("popuptext").innerHTML = poem2;
-      document.getElementById("popup").style.display = "flex";
-    }
-
-    if (idx >= images.length) {
-      document.getElementById("intro").innerHTML = `
-        <div class="card">
-          <div class="title">🎂 Happy Birthday Mumma ❤️</div>
-          <p class="sub">
-           क्योंकि माँ को शब्दों में नहीं… दिल में रखा जाता है ❤️<br><br>
-      If I had a thousand lives, I’d still choose you as my mother in every one of them.<br><br>
-            Thank you for every sacrifice, every prayer,
-            every act of love ❤️
-          </p>
-          <button onclick="location.reload()">Replay ✨</button>
-        </div>
-      `;
-      document.getElementById("intro").classList.remove("hidden");
-      document.getElementById("show").classList.add("hidden");
-      return;
-    }
-
-    img.src = images[idx];
-
-    cap.textContent =
-      captions[Math.min(
-        Math.floor(idx / (images.length / captions.length)),
-        captions.length - 1
-      )];
-
-    idx++;
-
-    setTimeout(nextSlide, 3000);
-  }
-
-  nextSlide();
-}
+for(let i=0;i<40;i++){const s=document.createElement('div');s.className='spark';s.textContent='✦';s.style.left=Math.random()*100+'vw';s.style.animationDuration=(8+Math.random()*10)+'s';s.style.fontSize=(10+Math.random()*20)+'px';document.body.appendChild(s)}
+const images=[];for(let i=1;i<=63;i++)images.push(`mumma/image${String(i).padStart(2,'0')}.jpeg`);
+const captions=["A beautiful beginning ❤️","A new chapter of love 💍","कुछ चेहरे उम्र से नहीं, मोहब्बत से निखरते हैं ✨","A beautiful soul becoming herself ❤️","तुमने घर नहीं बनाया… तुमने दुनिया बसाई ❤️","Love found its truest form in you 💖","हर तस्वीर में तुम हो… और हर याद में तुम्हारा प्यार ❤️","You made ordinary days feel like festivals ✨","Strength doesn’t always roar. Sometimes, it quietly becomes a mother.","The older I grow, the more miraculous you become 🌷","Our safest place. Our first home. Our Mumma ❤️","Every sacrifice became love in disguise 💕","Then you became a mother ❤️","Sleepless nights. Endless love.","Happiest of birthdays to the woman who shaped who I am and taught me how to dream big.","Mother of 3. Heart of the family ✨","Everything good in us has a little bit of you ❤️"];
+const poem1=`<h2>मेरी प्यारी माँ ❤️</h2><p>जब भी कभी मैं डरी या सहमी, मेरी ढाल बनकर हमेशा तुम खड़ी रहीं.<br><br>मेरी हर छोटी ख़ुशी में तुम मुस्कुराईं, और मेरे हर आँसू को तुमने अपने आँचल में छुपाया.</p>`;
+const poem2=`<h2>ममता का आँचल ❤️</h2><p>तुम मेरी पहली दोस्त और मेरी सबसे बड़ी ताकत हो.<br><br>मैं और भी ज्यादा तुम्हारे जैसी बनती जा रही हूँ.</p>`;
+function showMessage(msg){document.getElementById('popuptext').innerHTML='<p>'+msg+'</p>';document.getElementById('popup').style.display='flex'}
+function closePopup(){document.getElementById('popup').style.display='none'}
+function startShow(){const intro=document.getElementById('intro');const show=document.getElementById('show');const img=document.getElementById('slideimg');const cap=document.getElementById('caption');const music=document.getElementById('music');intro.style.display='none';show.classList.remove('hidden');document.querySelectorAll('.gift').forEach(g=>g.style.display='block');music.currentTime=0;music.play().catch(()=>{});let idx=0;function next(){if(idx===18){document.getElementById('popuptext').innerHTML=poem1;document.getElementById('popup').style.display='flex'}if(idx===42){document.getElementById('popuptext').innerHTML=poem2;document.getElementById('popup').style.display='flex'}if(idx>=images.length){show.style.display='none';intro.innerHTML='<div class="card"><div class="title">🎂 Happy Birthday Mumma ❤️</div><p class="sub">Thank you for every sacrifice, every prayer, every act of love ❤️</p><button onclick="location.reload()">Replay ✨</button></div>';intro.style.display='flex';return;}img.src=images[idx];cap.textContent=captions[Math.min(Math.floor(idx/(images.length/captions.length)),captions.length-1)];idx++;setTimeout(next,3000)}next()}
 </script>
-
 </body>
 </html>
